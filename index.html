@@ -955,7 +955,7 @@ h1 span {
 </main>
 
 <script>
-const DESTINO = "https://telehotchannel.site";
+const DESTINO = "https://www.telehotchannel.site";
 
 const giftStage = document.getElementById("giftStage");
 const giftButton = document.getElementById("giftButton");
@@ -1001,7 +1001,6 @@ function playUnlockSound() {
         const ac = new AudioCtx();
         const now = ac.currentTime;
 
-        // Impacto grave suave na explosão
         const subOsc = ac.createOscillator();
         const subGain = ac.createGain();
         subOsc.type = "sine";
@@ -1015,7 +1014,6 @@ function playUnlockSound() {
         subOsc.start(now + 0.14);
         subOsc.stop(now + 0.44);
 
-        // Pop da tampa
         const popOsc = ac.createOscillator();
         const popGain = ac.createGain();
         popOsc.type = "triangle";
@@ -1029,7 +1027,6 @@ function playUnlockSound() {
         popOsc.start(now + 0.14);
         popOsc.stop(now + 0.34);
 
-        // Acorde cristalino
         const notes = [523.25, 659.25, 783.99, 987.77, 1174.66, 1567.98];
         notes.forEach((freq, idx) => {
             const osc = ac.createOscillator();
@@ -1261,11 +1258,9 @@ function abrirPresente() {
 
     playUnlockSound();
 
-    // Fase 1: Compressão rápida
     giftSvg.classList.remove("rattle");
     giftSvg.classList.add("charging");
 
-    // Fase 2: Explosão e abertura da tampa
     setTimeout(() => {
         giftSvg.classList.remove("charging");
         giftSvg.classList.add("opening");
@@ -1279,7 +1274,6 @@ function abrirPresente() {
         unlockToast.classList.add("visible");
     }, 150);
 
-    // Fase 3: Flash dourado e redirecionamento
     setTimeout(() => {
         screenFlash.classList.add("active");
     }, 620);
@@ -1288,7 +1282,6 @@ function abrirPresente() {
         window.location.assign(DESTINO);
     }, 920);
 
-    // Fallback caso o WebView demore a redirecionar
     fallbackTimer = setTimeout(() => {
         screenFlash.classList.remove("active");
         unlockToast.innerHTML = `✨ Liberado! <a href="${DESTINO}">Toque aqui se não abrir</a>`;
