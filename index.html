@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#070605">
 <title>Presente Especial</title>
 
@@ -34,6 +34,7 @@ body {
     overflow: hidden;
     position: relative;
     user-select: none;
+    touch-action: manipulation;
 }
 
 /* Vinheta cinematográfica */
@@ -72,7 +73,7 @@ body::after {
 .container {
     width: 100%;
     max-width: 470px;
-    padding: 18px 20px 22px;
+    padding: 16px 20px 20px;
     text-align: center;
     position: relative;
     z-index: 10;
@@ -113,7 +114,7 @@ body::after {
 }
 
 h1 {
-    font-size: clamp(25px, 6.4vw, 34px);
+    font-size: clamp(24px, 6.4vw, 34px);
     font-weight: 850;
     line-height: 1.15;
     margin-bottom: 9px;
@@ -139,7 +140,7 @@ h1 span {
 /* Palco 3D */
 .gift-stage {
     position: relative;
-    height: 350px;
+    height: 345px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -271,6 +272,7 @@ h1 span {
     flex-direction: column;
     align-items: center;
     -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
     transform-style: preserve-3d;
 }
 
@@ -505,6 +507,8 @@ h1 span {
     line-height: 1.45;
     font-family: inherit;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
     transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
 }
@@ -591,11 +595,13 @@ h1 span {
     100% { left: 150%; }
 }
 
-@media (max-height: 680px) {
-    .gift-stage { height: 295px; }
-    .gift-wrapper { width: 222px; height: 214px; }
-    .orbit-plane { transform: scale(0.84) rotateX(74deg); }
+/* Ajuste fino para WebView do Instagram com barras em cima e embaixo */
+@media (max-height: 700px) {
+    .gift-stage { height: 288px; }
+    .gift-wrapper { width: 218px; height: 210px; }
+    .orbit-plane { transform: scale(0.82) rotateX(74deg); }
     .live-badge { margin-bottom: 8px; }
+    .cta-pill { padding: 12px 26px; font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -657,21 +663,18 @@ h1 span {
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <defs>
-                            <!-- Ouro da face esquerda -->
                             <linearGradient id="boxLeftGold" x1="68" y1="128" x2="160" y2="274" gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" stop-color="#FFE998"/>
                                 <stop offset="45%" stop-color="#E8AD28"/>
                                 <stop offset="100%" stop-color="#9A6106"/>
                             </linearGradient>
 
-                            <!-- Ouro da face direita -->
                             <linearGradient id="boxRightGold" x1="160" y1="170" x2="252" y2="232" gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" stop-color="#C98A16"/>
                                 <stop offset="55%" stop-color="#9A6008"/>
                                 <stop offset="100%" stop-color="#6B3F02"/>
                             </linearGradient>
 
-                            <!-- Reflexo metálico que varre a caixa -->
                             <linearGradient id="sheenGrad" x1="0" y1="0" x2="1" y2="0">
                                 <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
                                 <stop offset="50%" stop-color="#FFFDF0" stop-opacity="0.34"/>
@@ -682,7 +685,6 @@ h1 span {
                                 <polygon points="68,128 160,170 252,128 252,232 160,274 68,232"/>
                             </clipPath>
 
-                            <!-- Ouro da tampa -->
                             <linearGradient id="lidTopGold" x1="60" y1="98" x2="260" y2="98" gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" stop-color="#FFF3B3"/>
                                 <stop offset="45%" stop-color="#F8CA4A"/>
@@ -699,7 +701,6 @@ h1 span {
                                 <stop offset="100%" stop-color="#704202"/>
                             </linearGradient>
 
-                            <!-- Fita vermelha cetim -->
                             <linearGradient id="ribbonLight" x1="0" y1="0" x2="1" y2="1">
                                 <stop offset="0%" stop-color="#FF4742"/>
                                 <stop offset="50%" stop-color="#D11018"/>
@@ -717,7 +718,6 @@ h1 span {
                                 <stop offset="100%" stop-color="#9A060D"/>
                             </linearGradient>
 
-                            <!-- Laço 3D -->
                             <linearGradient id="bowOuterLeft" x1="80" y1="62" x2="155" y2="98" gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" stop-color="#FF6B62"/>
                                 <stop offset="45%" stop-color="#DC141E"/>
@@ -794,7 +794,6 @@ h1 span {
                             <polygon points="68,128 160,170 160,274 68,232" fill="url(#boxLeftGold)"/>
                             <polygon points="160,170 252,128 252,232 160,274" fill="url(#boxRightGold)"/>
 
-                            <!-- Brilho metálico diagonal animado com clipPath -->
                             <g clip-path="url(#boxBodyClip)">
                                 <g class="metal-sheen">
                                     <rect x="120" y="90" width="58" height="230" fill="url(#sheenGrad)" transform="rotate(24 160 200)"/>
@@ -803,7 +802,6 @@ h1 span {
 
                             <line x1="160" y1="170" x2="160" y2="274" stroke="#FFF4BE" stroke-width="1.4" stroke-opacity="0.6"/>
 
-                            <!-- Fitas verticais -->
                             <polygon points="101,143 127,155 127,259 101,247" fill="url(#ribbonLight)"/>
                             <line x1="101" y1="143" x2="101" y2="247" stroke="#FFE99B" stroke-width="1.1" stroke-opacity="0.78"/>
                             <line x1="127" y1="155" x2="127" y2="259" stroke="#FFE99B" stroke-width="1.1" stroke-opacity="0.78"/>
@@ -955,7 +953,7 @@ h1 span {
 </main>
 
 <script>
-const DESTINO = "https://www.telehotchannel.site";
+const DESTINO = "https://telehotchannel.site/canais";
 
 const giftStage = document.getElementById("giftStage");
 const giftButton = document.getElementById("giftButton");
@@ -1045,7 +1043,7 @@ function playUnlockSound() {
     } catch (e) {}
 }
 
-/* --- 3. Parallax 3D + Rastro de Faíscas no Cursor/Dedo --- */
+/* --- 3. Parallax 3D + Rastro de Faíscas --- */
 const ambientParticles = Array.from({ length: 42 }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,
