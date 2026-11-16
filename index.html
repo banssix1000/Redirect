@@ -14,7 +14,7 @@
 }
 
 :root {
-    --gold-100: #fff7cf;
+    --gold-100: #fff8d6;
     --gold-300: #ffd85c;
     --gold-500: #e5a922;
     --gold-700: #8f5c06;
@@ -28,7 +28,7 @@ body {
     justify-content: center;
     align-items: center;
     background:
-        radial-gradient(circle at 50% 42%, #422909 0%, #170e04 46%, #050403 88%);
+        radial-gradient(circle at 50% 42%, #472b09 0%, #180f04 45%, #050403 88%);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: #fff;
     overflow: hidden;
@@ -36,12 +36,12 @@ body {
     user-select: none;
 }
 
-/* Textura sutil de vinheta cinematográfica */
+/* Vinheta cinematográfica */
 body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at center, transparent 52%, rgba(0, 0, 0, 0.72) 100%);
+    background: radial-gradient(circle at center, transparent 48%, rgba(0, 0, 0, 0.78) 100%);
     pointer-events: none;
     z-index: 2;
 }
@@ -58,79 +58,85 @@ body::after {
 .screen-flash {
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at 50% 48%, #ffffff, #fff1aa 32%, #ffb829 65%, transparent 90%);
+    background: radial-gradient(circle at 50% 48%, #ffffff, #fff2ad 34%, #ffb829 66%, transparent 92%);
     opacity: 0;
     pointer-events: none;
     z-index: 30;
-    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .screen-flash.active {
-    opacity: 0.92;
+    opacity: 0.94;
 }
 
 .container {
     width: 100%;
     max-width: 470px;
-    padding: 20px 20px 24px;
+    padding: 18px 20px 22px;
     text-align: center;
     position: relative;
     z-index: 10;
 }
 
-/* Pílula de status ao vivo */
+/* Barra de urgência VIP no topo */
 .live-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 7px 15px;
-    margin-bottom: 14px;
+    padding: 7px 16px;
+    margin-bottom: 12px;
     border-radius: 999px;
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    letter-spacing: 0.7px;
     color: var(--gold-100);
-    background: rgba(255, 211, 77, 0.08);
-    border: 1px solid rgba(255, 211, 77, 0.28);
+    background: rgba(255, 211, 77, 0.09);
+    border: 1px solid rgba(255, 211, 77, 0.3);
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4), 0 0 18px rgba(255, 200, 60, 0.12);
 }
 
 .live-dot {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #ffd85c;
-    box-shadow: 0 0 10px #ffd85c;
-    animation: dotPulse 1.6s ease-in-out infinite;
+    background: #4ade80;
+    box-shadow: 0 0 10px #4ade80;
+    animation: dotPulse 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.timer-pill {
+    color: #ffd85c;
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
 }
 
 h1 {
-    font-size: clamp(26px, 6.2vw, 34px);
+    font-size: clamp(25px, 6.4vw, 34px);
     font-weight: 850;
-    line-height: 1.16;
-    margin-bottom: 10px;
+    line-height: 1.15;
+    margin-bottom: 9px;
     letter-spacing: -0.5px;
 }
 
 h1 span {
-    background: linear-gradient(135deg, #fff8cc 0%, #ffd34d 45%, #e39512 100%);
+    background: linear-gradient(135deg, #fff9d2 0%, #ffd34d 45%, #e39512 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 20px rgba(255, 196, 46, 0.35));
+    filter: drop-shadow(0 0 22px rgba(255, 196, 46, 0.38));
 }
 
 .subtitle {
-    color: #bfb7aa;
+    color: #c2b9ab;
     font-size: 14.5px;
-    line-height: 1.55;
-    max-width: 340px;
+    line-height: 1.5;
+    max-width: 345px;
     margin: 0 auto;
 }
 
-/* Palco 3D interativo */
+/* Palco 3D */
 .gift-stage {
     position: relative;
     height: 350px;
@@ -138,46 +144,119 @@ h1 span {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2px 0 8px;
+    margin: 2px 0 6px;
     perspective: 950px;
 }
 
 .aura-rays {
     position: absolute;
-    width: 370px;
-    height: 370px;
+    width: 380px;
+    height: 380px;
     border-radius: 50%;
     background: conic-gradient(
         from 0deg,
         transparent 0deg 18deg,
         rgba(255, 206, 72, 0.14) 28deg,
         transparent 44deg 74deg,
-        rgba(255, 206, 72, 0.09) 90deg,
+        rgba(255, 206, 72, 0.10) 90deg,
         transparent 110deg 145deg,
-        rgba(255, 206, 72, 0.14) 160deg,
+        rgba(255, 206, 72, 0.15) 160deg,
         transparent 180deg 215deg,
         rgba(255, 206, 72, 0.11) 235deg,
         transparent 255deg 290deg,
-        rgba(255, 206, 72, 0.13) 310deg,
+        rgba(255, 206, 72, 0.14) 310deg,
         transparent 335deg 360deg
     );
     -webkit-mask-image: radial-gradient(circle, black 16%, transparent 66%);
     mask-image: radial-gradient(circle, black 16%, transparent 66%);
-    animation: spinSlow 20s linear infinite;
+    animation: spinSlow 18s linear infinite;
     pointer-events: none;
-    transition: transform 0.6s ease, opacity 0.4s ease;
 }
 
 .aura-glow {
     position: absolute;
-    width: 250px;
-    height: 250px;
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 196, 46, 0.3) 0%, rgba(255, 140, 0, 0.09) 46%, transparent 74%);
+    background: radial-gradient(circle, rgba(255, 196, 46, 0.32) 0%, rgba(255, 140, 0, 0.1) 46%, transparent 74%);
     filter: blur(22px);
     pointer-events: none;
     animation: glowPulse 3s ease-in-out infinite;
-    transition: transform 0.5s ease, opacity 0.4s ease;
+}
+
+/* Anéis orbitais 3D em volta da caixa */
+.orbit-plane {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    top: 22px;
+    pointer-events: none;
+    transform-style: preserve-3d;
+}
+
+.orbit-1 {
+    transform: rotateX(74deg) rotateY(-14deg);
+}
+
+.orbit-2 {
+    width: 260px;
+    height: 260px;
+    top: 38px;
+    transform: rotateX(76deg) rotateY(16deg);
+}
+
+.orbit-ring {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 218, 102, 0.26);
+    position: relative;
+    animation: spinSlow 9s linear infinite;
+}
+
+.orbit-2 .orbit-ring {
+    border-color: rgba(255, 180, 60, 0.18);
+    animation: spinSlowReverse 13s linear infinite;
+}
+
+.orbit-ring::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff4b8;
+    box-shadow: 0 0 12px 3px rgba(255, 215, 90, 0.9);
+}
+
+.orbit-2 .orbit-ring::after {
+    width: 5px;
+    height: 5px;
+    top: auto;
+    bottom: -3px;
+    background: #ffd147;
+}
+
+/* Anel guia sutil de toque */
+.tap-guide {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 232, 148, 0.75);
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 6;
+    animation: tapPulse 2.8s ease-out infinite;
+}
+
+.tap-guide.hidden {
+    display: none;
 }
 
 .gift-button {
@@ -186,14 +265,13 @@ h1 span {
     border: 0;
     background: none;
     cursor: pointer;
-    padding: 4px 16px 10px;
+    padding: 4px 16px 8px;
     border-radius: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     -webkit-tap-highlight-color: transparent;
     transform-style: preserve-3d;
-    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .gift-button:focus-visible {
@@ -203,7 +281,7 @@ h1 span {
 
 .tilt-layer {
     transform-style: preserve-3d;
-    transition: transform 0.18s ease-out;
+    transition: transform 0.16s ease-out;
     will-change: transform;
 }
 
@@ -227,16 +305,16 @@ h1 span {
 
 .gift-button:hover .gift-svg {
     filter:
-        drop-shadow(0 26px 32px rgba(0, 0, 0, 0.72))
-        drop-shadow(0 0 32px rgba(255, 204, 64, 0.4));
+        drop-shadow(0 26px 32px rgba(0, 0, 0, 0.75))
+        drop-shadow(0 0 34px rgba(255, 204, 64, 0.45));
 }
 
 .floor-shadow {
-    width: 174px;
+    width: 176px;
     height: 24px;
     margin-top: -16px;
     border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.25) 56%, transparent 76%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.84) 0%, rgba(0, 0, 0, 0.25) 56%, transparent 76%);
     animation: shadowSync 3.2s ease-in-out infinite;
     pointer-events: none;
 }
@@ -244,16 +322,20 @@ h1 span {
 /* Partes internas do SVG 3D */
 .gift-lid-group {
     transform-origin: 160px 115px;
-    transition: transform 0.7s cubic-bezier(0.16, 1.25, 0.32, 1), opacity 0.45s ease;
+    transition: transform 0.68s cubic-bezier(0.16, 1.25, 0.32, 1), opacity 0.45s ease;
 }
 
 .gift-box-group {
     transform-origin: 160px 268px;
-    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.metal-sheen {
+    animation: metalSweep 4.2s ease-in-out infinite;
 }
 
 .seam-glow {
-    opacity: 0.22;
+    opacity: 0.24;
     transition: opacity 0.25s ease;
     animation: seamBreath 3.2s ease-in-out infinite;
 }
@@ -267,36 +349,33 @@ h1 span {
     opacity: 0;
     transform-origin: 160px 135px;
     transform: scaleY(0.15);
-    transition: opacity 0.32s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 0.3s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Animação periódica de "algo se mexendo lá dentro" */
 .gift-svg.rattle {
     animation: rattleBox 0.65s ease-in-out;
 }
 
-/* Etapa 1 do clique: compressão rápida de energia */
 .gift-svg.charging {
     animation: none;
     filter:
-        drop-shadow(0 0 34px rgba(255, 216, 92, 0.75))
-        drop-shadow(0 18px 26px rgba(0, 0, 0, 0.75));
+        drop-shadow(0 0 38px rgba(255, 216, 92, 0.8))
+        drop-shadow(0 18px 26px rgba(0, 0, 0, 0.78));
 }
 
 .gift-svg.charging .gift-box-group,
 .gift-svg.charging .gift-lid-group {
-    transform: translateY(7px) scale(1.04, 0.93);
+    transform: translateY(8px) scale(1.045, 0.92);
 }
 
 .gift-svg.charging .seam-glow {
     opacity: 1;
 }
 
-/* Etapa 2 do clique: explosão e abertura */
 .gift-svg.opening {
     animation: none;
     filter:
-        drop-shadow(0 0 48px rgba(255, 224, 118, 0.95))
+        drop-shadow(0 0 52px rgba(255, 224, 118, 0.96))
         drop-shadow(0 22px 34px rgba(0, 0, 0, 0.75));
 }
 
@@ -305,43 +384,60 @@ h1 span {
 }
 
 .gift-svg.opening .gift-lid-group {
-    transform: translate(-22px, -90px) rotate(-20deg) scale(1.04);
+    transform: translate(-24px, -94px) rotate(-21deg) scale(1.04);
     opacity: 0.92;
 }
 
 .gift-svg.opening .inner-beam {
     opacity: 1;
-    transform: scaleY(1.25);
+    transform: scaleY(1.28);
 }
 
 .gift-svg.opening .seam-glow {
     opacity: 0;
 }
 
-/* Botão CTA */
+/* Botão CTA de alta conversão */
 .cta-pill {
     position: relative;
     overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     margin-top: 10px;
-    padding: 13px 32px;
+    padding: 14px 32px;
     border-radius: 999px;
-    background: linear-gradient(135deg, #ffec99 0%, #ffb923 50%, #dd8906 100%);
-    color: #241300;
+    background: linear-gradient(135deg, #fff0a8 0%, #ffbe26 50%, #db8604 100%);
+    color: #211100;
     font-size: 14px;
     font-weight: 900;
-    letter-spacing: 1.8px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     box-shadow:
-        0 10px 26px rgba(255, 184, 30, 0.4),
-        inset 0 1px 1.5px rgba(255, 255, 255, 0.8);
+        0 10px 28px rgba(255, 184, 30, 0.44),
+        0 0 0 1px rgba(255, 236, 158, 0.45),
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.85);
+    animation: ctaPulse 2.4s ease-in-out infinite;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.cta-arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    font-size: 16px;
+    line-height: 1;
+}
+
 .gift-button:hover .cta-pill {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow:
-        0 14px 34px rgba(255, 198, 56, 0.65),
-        inset 0 1px 1.5px rgba(255, 255, 255, 0.92);
+        0 14px 36px rgba(255, 198, 56, 0.68),
+        0 0 0 1px rgba(255, 240, 178, 0.7),
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.95);
+}
+
+.gift-button:hover .cta-arrow {
+    transform: translateX(4px);
 }
 
 .gift-button:active .cta-pill {
@@ -355,53 +451,71 @@ h1 span {
     left: -120%;
     width: 70%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
     transform: skewX(-22deg);
-    animation: ctaShine 3s ease-in-out infinite;
+    animation: ctaShine 2.9s ease-in-out infinite;
 }
 
-/* Mensagem de desbloqueio ao abrir */
+/* Aviso flutuante de desbloqueio + fallback link */
 .unlock-toast {
     position: absolute;
-    bottom: 52px;
+    bottom: 56px;
     left: 50%;
     transform: translate(-50%, 10px) scale(0.92);
-    padding: 8px 18px;
+    padding: 9px 18px;
     border-radius: 999px;
-    background: rgba(24, 16, 4, 0.88);
-    border: 1px solid rgba(255, 216, 92, 0.6);
-    color: #ffe997;
+    background: rgba(20, 13, 3, 0.92);
+    border: 1px solid rgba(255, 216, 92, 0.65);
+    color: #ffec9e;
     font-size: 12.5px;
     font-weight: 700;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.4px;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 200, 60, 0.25);
-    transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    z-index: 12;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55), 0 0 22px rgba(255, 200, 60, 0.28);
+    transition: opacity 0.28s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 15;
 }
 
 .unlock-toast.visible {
     opacity: 1;
     transform: translate(-50%, 0) scale(1);
+    pointer-events: auto;
 }
 
-.hint {
+.unlock-toast a {
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+/* Cartão inferior clicável */
+.hint-button {
+    width: 100%;
     margin-top: 6px;
-    padding: 14px 18px;
-    border: 1px solid rgba(255, 211, 77, 0.2);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+    padding: 13px 16px;
+    border: 1px solid rgba(255, 211, 77, 0.22);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
     backdrop-filter: blur(12px);
     border-radius: 15px;
-    color: #b7b0a4;
+    color: #c2b9ab;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.45;
+    font-family: inherit;
+    cursor: pointer;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
 }
 
-.hint span {
+.hint-button:hover {
+    border-color: rgba(255, 211, 77, 0.45);
+    background: linear-gradient(180deg, rgba(255, 215, 90, 0.09), rgba(255, 255, 255, 0.03));
+    transform: translateY(-1px);
+}
+
+.hint-button span {
     color: var(--gold-300);
     font-weight: 700;
 }
@@ -419,26 +533,47 @@ h1 span {
 
 @keyframes rattleBox {
     0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-    15% { transform: translateY(-5px) rotate(-4deg) scale(1.02, 0.98); }
-    30% { transform: translateY(-7px) rotate(4deg) scale(0.99, 1.02); }
-    45% { transform: translateY(-4px) rotate(-3deg) scale(1.01, 0.99); }
+    15% { transform: translateY(-5px) rotate(-4.5deg) scale(1.02, 0.98); }
+    30% { transform: translateY(-8px) rotate(4.5deg) scale(0.99, 1.02); }
+    45% { transform: translateY(-4px) rotate(-3.5deg) scale(1.01, 0.99); }
     60% { transform: translateY(-2px) rotate(2.5deg); }
     75% { transform: translateY(0) rotate(-1.5deg); }
 }
 
+@keyframes metalSweep {
+    0%, 55% { transform: translateX(-230px); }
+    100% { transform: translateX(250px); }
+}
+
+@keyframes tapPulse {
+    0% { transform: translate(-50%, -50%) scale(0.45); opacity: 0; }
+    20% { opacity: 0.8; }
+    70%, 100% { transform: translate(-50%, -50%) scale(1.85); opacity: 0; }
+}
+
+@keyframes ctaPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.025); }
+}
+
 @keyframes seamBreath {
-    0%, 100% { opacity: 0.18; }
-    50% { opacity: 0.55; }
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.62; }
 }
 
 @keyframes tagSway {
     0%, 100% { transform: rotate(-2deg); }
-    50% { transform: rotate(4deg); }
+    50% { transform: rotate(4.5deg); }
 }
 
 @keyframes spinSlow {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@keyframes spinSlowReverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
 }
 
 @keyframes glowPulse {
@@ -447,23 +582,25 @@ h1 span {
 }
 
 @keyframes dotPulse {
-    0%, 100% { transform: scale(0.9); opacity: 0.7; }
-    50% { transform: scale(1.3); opacity: 1; }
+    0%, 100% { transform: scale(0.9); opacity: 0.75; }
+    50% { transform: scale(1.35); opacity: 1; }
 }
 
 @keyframes ctaShine {
-    0%, 55% { left: -120%; }
+    0%, 52% { left: -120%; }
     100% { left: 150%; }
 }
 
-@media (max-height: 670px) {
-    .gift-stage { height: 300px; }
-    .gift-wrapper { width: 225px; height: 215px; }
+@media (max-height: 680px) {
+    .gift-stage { height: 295px; }
+    .gift-wrapper { width: 222px; height: 214px; }
+    .orbit-plane { transform: scale(0.84) rotateX(74deg); }
     .live-badge { margin-bottom: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .gift-svg, .floor-shadow, .aura-rays, .aura-glow, .cta-pill::after, .vip-tag-group, .seam-glow, .live-dot {
+    .gift-svg, .floor-shadow, .aura-rays, .aura-glow, .cta-pill, .cta-pill::after,
+    .vip-tag-group, .seam-glow, .live-dot, .orbit-ring, .metal-sheen, .tap-guide {
         animation: none;
     }
 }
@@ -478,25 +615,37 @@ h1 span {
 <main class="container">
     <div class="live-badge">
         <span class="live-dot" aria-hidden="true"></span>
-        Acesso Exclusivo Liberado
+        <span>Reservado para você •</span>
+        <span class="timer-pill" id="countdownTimer">02:59</span>
     </div>
 
     <h1>Tem um <span>presente</span> para você!</h1>
 
     <p class="subtitle">
-        Preparamos uma surpresa especial.
-        Toque na caixa dourada para abrir agora!
+        Preparamos uma surpresa exclusiva.
+        Toque na caixa dourada antes que o tempo acabe!
     </p>
 
     <div class="gift-stage" id="giftStage">
         <div class="aura-rays" aria-hidden="true"></div>
         <div class="aura-glow" aria-hidden="true"></div>
 
+        <!-- Anéis Orbitais 3D -->
+        <div class="orbit-plane orbit-1" aria-hidden="true">
+            <div class="orbit-ring"></div>
+        </div>
+        <div class="orbit-plane orbit-2" aria-hidden="true">
+            <div class="orbit-ring"></div>
+        </div>
+
+        <!-- Guia sutil de toque -->
+        <div class="tap-guide" id="tapGuide" aria-hidden="true"></div>
+
         <button
             type="button"
             class="gift-button"
             id="giftButton"
-            aria-label="Abrir presente especial"
+            aria-label="Abrir meu presente especial"
         >
             <div class="tilt-layer" id="tiltLayer">
                 <div class="gift-wrapper">
@@ -508,19 +657,30 @@ h1 span {
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <defs>
-                            <!-- Ouro da face esquerda (iluminada) -->
+                            <!-- Ouro da face esquerda -->
                             <linearGradient id="boxLeftGold" x1="68" y1="128" x2="160" y2="274" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFE894"/>
+                                <stop offset="0%" stop-color="#FFE998"/>
                                 <stop offset="45%" stop-color="#E8AD28"/>
                                 <stop offset="100%" stop-color="#9A6106"/>
                             </linearGradient>
 
-                            <!-- Ouro da face direita (sombreada) -->
+                            <!-- Ouro da face direita -->
                             <linearGradient id="boxRightGold" x1="160" y1="170" x2="252" y2="232" gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" stop-color="#C98A16"/>
                                 <stop offset="55%" stop-color="#9A6008"/>
                                 <stop offset="100%" stop-color="#6B3F02"/>
                             </linearGradient>
+
+                            <!-- Reflexo metálico que varre a caixa -->
+                            <linearGradient id="sheenGrad" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+                                <stop offset="50%" stop-color="#FFFDF0" stop-opacity="0.34"/>
+                                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+                            </linearGradient>
+
+                            <clipPath id="boxBodyClip">
+                                <polygon points="68,128 160,170 252,128 252,232 160,274 68,232"/>
+                            </clipPath>
 
                             <!-- Ouro da tampa -->
                             <linearGradient id="lidTopGold" x1="60" y1="98" x2="260" y2="98" gradientUnits="userSpaceOnUse">
@@ -611,9 +771,9 @@ h1 span {
                                 <stop offset="100%" stop-color="#703B00"/>
                             </radialGradient>
 
-                            <linearGradient id="beamGrad" x1="160" y1="140" x2="160" y2="-25" gradientUnits="userSpaceOnUse">
+                            <linearGradient id="beamGrad" x1="160" y1="140" x2="160" y2="-30" gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" stop-color="#FFFCE6" stop-opacity="0.98"/>
-                                <stop offset="48%" stop-color="#FFD24C" stop-opacity="0.52"/>
+                                <stop offset="48%" stop-color="#FFD24C" stop-opacity="0.54"/>
                                 <stop offset="100%" stop-color="#FFD24C" stop-opacity="0"/>
                             </linearGradient>
 
@@ -628,18 +788,22 @@ h1 span {
 
                         <!-- CORPO DA CAIXA 3D -->
                         <g class="gift-box-group">
-                            <!-- Interior brilhante (revelado quando a tampa abre) -->
                             <polygon points="160,86 252,128 160,170 68,128" fill="#5E3500"/>
                             <polygon points="160,92 242,128 160,164 78,128" fill="url(#cavityGlow)"/>
 
-                            <!-- Faces externas -->
                             <polygon points="68,128 160,170 160,274 68,232" fill="url(#boxLeftGold)"/>
                             <polygon points="160,170 252,128 252,232 160,274" fill="url(#boxRightGold)"/>
 
-                            <!-- Brilho metálico na quina central -->
-                            <line x1="160" y1="170" x2="160" y2="274" stroke="#FFF4BE" stroke-width="1.4" stroke-opacity="0.58"/>
+                            <!-- Brilho metálico diagonal animado com clipPath -->
+                            <g clip-path="url(#boxBodyClip)">
+                                <g class="metal-sheen">
+                                    <rect x="120" y="90" width="58" height="230" fill="url(#sheenGrad)" transform="rotate(24 160 200)"/>
+                                </g>
+                            </g>
 
-                            <!-- Fitas verticais com bordas douradas -->
+                            <line x1="160" y1="170" x2="160" y2="274" stroke="#FFF4BE" stroke-width="1.4" stroke-opacity="0.6"/>
+
+                            <!-- Fitas verticais -->
                             <polygon points="101,143 127,155 127,259 101,247" fill="url(#ribbonLight)"/>
                             <line x1="101" y1="143" x2="101" y2="247" stroke="#FFE99B" stroke-width="1.1" stroke-opacity="0.78"/>
                             <line x1="127" y1="155" x2="127" y2="259" stroke="#FFE99B" stroke-width="1.1" stroke-opacity="0.78"/>
@@ -648,39 +812,34 @@ h1 span {
                             <line x1="193" y1="155" x2="193" y2="259" stroke="#FFE99B" stroke-width="1.1" stroke-opacity="0.55"/>
                             <line x1="219" y1="143" x2="219" y2="247" stroke="#FFE99B" stroke-width="1.1" stroke-opacity="0.55"/>
 
-                            <!-- Sombra da tampa sobre o corpo -->
                             <polygon points="68,128 160,170 160,187 68,145" fill="#1C0A00" fill-opacity="0.48"/>
                             <polygon points="160,170 252,128 252,145 160,187" fill="#120600" fill-opacity="0.58"/>
                         </g>
 
                         <!-- FEIXE DE LUZ AO ABRIR -->
                         <g class="inner-beam">
-                            <polygon points="82,130 238,130 302,-25 18,-25" fill="url(#beamGrad)"/>
+                            <polygon points="82,130 238,130 306,-30 14,-30" fill="url(#beamGrad)"/>
                         </g>
 
                         <!-- TAMPA 3D + LAÇO + TAG VIP -->
                         <g class="gift-lid-group">
-                            <!-- Luz mágica vazando pela fresta abaixo da tampa -->
                             <polyline
                                 class="seam-glow"
                                 points="61,132 160,178 259,132"
                                 stroke="#FFE98A"
-                                stroke-width="2.4"
+                                stroke-width="2.5"
                                 stroke-linecap="round"
                                 filter="url(#glowLine)"
                                 fill="none"
                             />
 
-                            <!-- Laterais e topo da tampa -->
                             <polygon points="60,98 160,144 160,178 60,132" fill="url(#lidLeftGold)"/>
                             <polygon points="160,144 260,98 260,132 160,178" fill="url(#lidRightGold)"/>
                             <polygon points="60,98 160,52 260,98 160,144" fill="url(#lidTopGold)"/>
 
-                            <!-- Realce nas quinas da tampa -->
                             <polyline points="60,98 160,144 260,98" stroke="#FFF8D2" stroke-width="1.4" stroke-opacity="0.72" fill="none"/>
                             <line x1="160" y1="144" x2="160" y2="178" stroke="#FFF6C4" stroke-width="1.3" stroke-opacity="0.52"/>
 
-                            <!-- Fitas na tampa -->
                             <polygon points="97,115 197,69 223,81 123,127" fill="url(#ribbonTop)"/>
                             <polygon points="197,127 97,81 123,69 223,115" fill="url(#ribbonTop)"/>
 
@@ -692,10 +851,9 @@ h1 span {
                             <line x1="197" y1="127" x2="197" y2="161" stroke="#FFE99B" stroke-width="1.1" stroke-opacity="0.6"/>
                             <line x1="223" y1="115" x2="223" y2="149" stroke="#FFE99B" stroke-width="1.1" stroke-opacity="0.6"/>
 
-                            <!-- Sombra do laço na tampa -->
                             <ellipse cx="160" cy="99" rx="52" ry="13" fill="#2A0002" fill-opacity="0.45"/>
 
-                            <!-- TAG VIP DOURADA PENDURADA -->
+                            <!-- Tag VIP Dourada -->
                             <g class="vip-tag-group">
                                 <path d="M172 95 Q208 102 229 119" stroke="#FFE688" stroke-width="1.3" fill="none"/>
                                 <g transform="translate(226, 117) rotate(-12)">
@@ -734,7 +892,7 @@ h1 span {
                                 stroke="#FFE692" stroke-width="0.9" stroke-opacity="0.55"
                             />
 
-                            <!-- Alças superiores do laço -->
+                            <!-- Alças superiores -->
                             <path
                                 d="M155 86 C140 50, 110 38, 104 58 C100 72, 124 88, 152 91 Z"
                                 fill="url(#bowUpperLeft)"
@@ -749,7 +907,7 @@ h1 span {
                             />
                             <path d="M172 84 C184 62, 202 54, 206 63 C208 70, 192 82, 173 87 Z" fill="url(#bowInsideDark)"/>
 
-                            <!-- Alças principais laterais com dobra 3D -->
+                            <!-- Alças principais com cavidade 3D -->
                             <path
                                 d="M153 89 C125 66, 76 62, 74 86 C72 108, 116 112, 153 97 Z"
                                 fill="url(#bowOuterLeft)"
@@ -766,7 +924,7 @@ h1 span {
                             <path d="M175 91 C196 76, 228 75, 230 88 C231 99, 202 102, 175 95 Z" fill="url(#bowInsideDark)"/>
                             <path d="M236 78 C222 69, 196 72, 176 85" stroke="#FF8780" stroke-width="2" stroke-linecap="round" stroke-opacity="0.4" fill="none"/>
 
-                            <!-- Nó central franzido -->
+                            <!-- Nó central -->
                             <path
                                 d="M148 80 C154 75, 166 75, 172 80 C176 86, 176 94, 172 100 C166 104, 154 104, 148 100 C144 94, 144 86, 148 80 Z"
                                 fill="url(#knotGrad)"
@@ -781,7 +939,9 @@ h1 span {
             </div>
 
             <div class="floor-shadow" aria-hidden="true"></div>
-            <span class="cta-pill">Abrir Presente</span>
+            <span class="cta-pill">
+                Abrir Meu Presente <span class="cta-arrow" aria-hidden="true">→</span>
+            </span>
         </button>
 
         <div class="unlock-toast" id="unlockToast" aria-live="polite">
@@ -789,9 +949,9 @@ h1 span {
         </div>
     </div>
 
-    <div class="hint">
-        🎁 Toque no presente acima para <span>liberar seu acesso imediato!</span>
-    </div>
+    <button type="button" class="hint-button" id="hintButton">
+        ⚡ Liberação <span>imediata e gratuita</span> • Toque para resgatar!
+    </button>
 </main>
 
 <script>
@@ -799,23 +959,41 @@ const DESTINO = "https://telehotchannel.site";
 
 const giftStage = document.getElementById("giftStage");
 const giftButton = document.getElementById("giftButton");
+const hintButton = document.getElementById("hintButton");
 const tiltLayer = document.getElementById("tiltLayer");
 const giftSvg = document.getElementById("giftSvg");
+const tapGuide = document.getElementById("tapGuide");
 const screenFlash = document.getElementById("screenFlash");
 const unlockToast = document.getElementById("unlockToast");
+const countdownTimer = document.getElementById("countdownTimer");
 const canvas = document.getElementById("fx-canvas");
 const ctx = canvas.getContext("2d");
 
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
 let abrindo = false;
+let fallbackTimer = null;
 
 window.addEventListener("resize", () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
 });
 
-/* --- 1. Efeito Sonoro Procedural (Web Audio API) --- */
+/* --- 1. Contador regressivo de reserva VIP --- */
+let timeLeft = 179; // 02:59
+const timerInterval = setInterval(() => {
+    if (timeLeft > 0) {
+        timeLeft--;
+        const mins = String(Math.floor(timeLeft / 60)).padStart(2, "0");
+        const secs = String(timeLeft % 60).padStart(2, "0");
+        countdownTimer.textContent = `${mins}:${secs}`;
+    } else {
+        countdownTimer.textContent = "Últimos segundos!";
+        clearInterval(timerInterval);
+    }
+}, 1000);
+
+/* --- 2. Efeito Sonoro Procedural (Sub-bass + Pop + Acorde Mágico) --- */
 function playUnlockSound() {
     try {
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -823,64 +1001,54 @@ function playUnlockSound() {
         const ac = new AudioCtx();
         const now = ac.currentTime;
 
-        // Pop suave na abertura da tampa
+        // Impacto grave suave na explosão
+        const subOsc = ac.createOscillator();
+        const subGain = ac.createGain();
+        subOsc.type = "sine";
+        subOsc.frequency.setValueAtTime(110, now + 0.14);
+        subOsc.frequency.exponentialRampToValueAtTime(38, now + 0.38);
+        subGain.gain.setValueAtTime(0.001, now + 0.14);
+        subGain.gain.linearRampToValueAtTime(0.28, now + 0.16);
+        subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.42);
+        subOsc.connect(subGain);
+        subGain.connect(ac.destination);
+        subOsc.start(now + 0.14);
+        subOsc.stop(now + 0.44);
+
+        // Pop da tampa
         const popOsc = ac.createOscillator();
         const popGain = ac.createGain();
         popOsc.type = "triangle";
-        popOsc.frequency.setValueAtTime(160, now + 0.14);
-        popOsc.frequency.exponentialRampToValueAtTime(520, now + 0.24);
+        popOsc.frequency.setValueAtTime(170, now + 0.14);
+        popOsc.frequency.exponentialRampToValueAtTime(560, now + 0.25);
         popGain.gain.setValueAtTime(0.001, now + 0.14);
-        popGain.gain.exponentialRampToValueAtTime(0.22, now + 0.17);
+        popGain.gain.exponentialRampToValueAtTime(0.2, now + 0.17);
         popGain.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
         popOsc.connect(popGain);
         popGain.connect(ac.destination);
         popOsc.start(now + 0.14);
         popOsc.stop(now + 0.34);
 
-        // Acorde mágico brilhante (Dó maior com 7ª e 9ª)
-        const notes = [523.25, 659.25, 783.99, 987.77, 1174.66];
+        // Acorde cristalino
+        const notes = [523.25, 659.25, 783.99, 987.77, 1174.66, 1567.98];
         notes.forEach((freq, idx) => {
             const osc = ac.createOscillator();
             const gain = ac.createGain();
-            const start = now + 0.18 + idx * 0.045;
+            const start = now + 0.17 + idx * 0.04;
             osc.type = "sine";
             osc.frequency.setValueAtTime(freq, start);
             gain.gain.setValueAtTime(0.001, start);
-            gain.gain.linearRampToValueAtTime(0.09, start + 0.03);
-            gain.gain.exponentialRampToValueAtTime(0.0008, start + 0.75);
+            gain.gain.linearRampToValueAtTime(0.08, start + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.0008, start + 0.78);
             osc.connect(gain);
             gain.connect(ac.destination);
             osc.start(start);
-            osc.stop(start + 0.8);
+            osc.stop(start + 0.82);
         });
-    } catch (e) {
-        // Falha silenciosa se áudio não estiver disponível
-    }
+    } catch (e) {}
 }
 
-/* --- 2. Parallax 3D com Mouse / Toque --- */
-function applyTilt(clientX, clientY) {
-    if (abrindo) return;
-    const rect = giftStage.getBoundingClientRect();
-    const x = (clientX - rect.left) / rect.width - 0.5;
-    const y = (clientY - rect.top) / rect.height - 0.5;
-    const rotateY = Math.max(-14, Math.min(14, x * 24));
-    const rotateX = Math.max(-10, Math.min(10, -y * 18));
-    tiltLayer.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-}
-
-window.addEventListener("mousemove", (e) => applyTilt(e.clientX, e.clientY));
-window.addEventListener("touchmove", (e) => {
-    if (e.touches && e.touches[0]) {
-        applyTilt(e.touches[0].clientX, e.touches[0].clientY);
-    }
-}, { passive: true });
-
-document.addEventListener("mouseleave", () => {
-    tiltLayer.style.transform = "rotateX(0deg) rotateY(0deg)";
-});
-
-/* --- 3. Partículas Canvas (Poeira + Faíscas + Confetes + Ondas) --- */
+/* --- 3. Parallax 3D + Rastro de Faíscas no Cursor/Dedo --- */
 const ambientParticles = Array.from({ length: 42 }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,
@@ -894,20 +1062,62 @@ const ambientParticles = Array.from({ length: 42 }, () => ({
 const burstParticles = [];
 const shockwaves = [];
 const burstColors = ["#FFF9D6", "#FFD34D", "#FFB41F", "#FF4A4A", "#FFFFFF", "#FFE380"];
+let lastTrail = 0;
+
+function spawnTrailSpark(x, y) {
+    const now = performance.now();
+    if (now - lastTrail < 28 || abrindo) return;
+    lastTrail = now;
+    burstParticles.push({
+        x: x + (Math.random() - 0.5) * 8,
+        y: y + (Math.random() - 0.5) * 8,
+        vx: (Math.random() - 0.5) * 1.1,
+        vy: -(Math.random() * 1.2 + 0.3),
+        size: Math.random() * 3 + 1.8,
+        color: "#FFE88A",
+        alpha: 0.75,
+        rotation: Math.random() * Math.PI,
+        vRot: (Math.random() - 0.5) * 0.12,
+        gravity: 0.015,
+        isStar: true
+    });
+}
+
+function applyTilt(clientX, clientY) {
+    if (abrindo) return;
+    const rect = giftStage.getBoundingClientRect();
+    const x = (clientX - rect.left) / rect.width - 0.5;
+    const y = (clientY - rect.top) / rect.height - 0.5;
+    const rotateY = Math.max(-15, Math.min(15, x * 26));
+    const rotateX = Math.max(-11, Math.min(11, -y * 20));
+    tiltLayer.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    spawnTrailSpark(clientX, clientY);
+}
+
+window.addEventListener("mousemove", (e) => applyTilt(e.clientX, e.clientY));
+window.addEventListener("touchmove", (e) => {
+    if (e.touches && e.touches[0]) {
+        applyTilt(e.touches[0].clientX, e.touches[0].clientY);
+    }
+}, { passive: true });
+
+document.addEventListener("mouseleave", () => {
+    tiltLayer.style.transform = "rotateX(0deg) rotateY(0deg)";
+});
 
 function spawnLeakSparks() {
     const rect = giftSvg.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height * 0.48;
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 9; i++) {
         burstParticles.push({
             x: cx + (Math.random() - 0.5) * 90,
             y: cy + (Math.random() - 0.5) * 16,
-            vx: (Math.random() - 0.5) * 2.2,
-            vy: -(Math.random() * 2.5 + 1.2),
-            size: Math.random() * 3.5 + 2,
+            vx: (Math.random() - 0.5) * 2.4,
+            vy: -(Math.random() * 2.6 + 1.2),
+            size: Math.random() * 3.6 + 2,
             color: "#FFE88A",
-            alpha: 0.9,
+            alpha: 0.92,
             rotation: Math.random() * Math.PI,
             vRot: (Math.random() - 0.5) * 0.15,
             gravity: 0.03,
@@ -917,17 +1127,17 @@ function spawnLeakSparks() {
 }
 
 function spawnBurst(originX, originY) {
-    shockwaves.push({ x: originX, y: originY, r: 16, maxR: 260, alpha: 0.85, lineWidth: 5 });
-    shockwaves.push({ x: originX, y: originY, r: 6, maxR: 185, alpha: 0.65, lineWidth: 3 });
+    shockwaves.push({ x: originX, y: originY, r: 16, maxR: 280, alpha: 0.9, lineWidth: 5 });
+    shockwaves.push({ x: originX, y: originY, r: 6, maxR: 195, alpha: 0.68, lineWidth: 3 });
 
-    for (let i = 0; i < 95; i++) {
+    for (let i = 0; i < 105; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 10.5 + 3.2;
+        const speed = Math.random() * 11 + 3.4;
         burstParticles.push({
             x: originX,
             y: originY,
             vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed - 4,
+            vy: Math.sin(angle) * speed - 4.2,
             size: Math.random() * 7 + 3,
             color: burstColors[Math.floor(Math.random() * burstColors.length)],
             alpha: 1,
@@ -980,7 +1190,7 @@ function animateFX() {
     for (let i = shockwaves.length - 1; i >= 0; i--) {
         const s = shockwaves[i];
         s.r += (s.maxR - s.r) * 0.14;
-        s.alpha -= 0.025;
+        s.alpha -= 0.024;
         if (s.alpha <= 0) {
             shockwaves.splice(i, 1);
             continue;
@@ -1024,7 +1234,7 @@ function animateFX() {
 
 animateFX();
 
-/* --- 4. Animação periódica de expectativa (tremidinha + faíscas) --- */
+/* --- 4. Animação periódica de expectativa --- */
 setInterval(() => {
     if (abrindo) return;
     giftSvg.classList.remove("rattle");
@@ -1034,18 +1244,24 @@ setInterval(() => {
     setTimeout(() => {
         giftSvg.classList.remove("rattle");
     }, 680);
-}, 3800);
+}, 3600);
 
 /* --- 5. Sequência de Abertura e Redirecionamento --- */
-giftButton.addEventListener("click", () => {
+function abrirPresente() {
     if (abrindo) return;
     abrindo = true;
     giftButton.disabled = true;
+    hintButton.disabled = true;
+    tapGuide.classList.add("hidden");
     tiltLayer.style.transform = "rotateX(0deg) rotateY(0deg)";
+
+    if (navigator.vibrate) {
+        try { navigator.vibrate([25, 30, 65]); } catch (e) {}
+    }
 
     playUnlockSound();
 
-    // Fase 1: Compressão rápida acumulando energia
+    // Fase 1: Compressão rápida
     giftSvg.classList.remove("rattle");
     giftSvg.classList.add("charging");
 
@@ -1058,23 +1274,37 @@ giftButton.addEventListener("click", () => {
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height * 0.42;
         spawnBurst(centerX, centerY);
+
+        unlockToast.textContent = "✨ Presente desbloqueado! Abrindo...";
         unlockToast.classList.add("visible");
     }, 150);
 
     // Fase 3: Flash dourado e redirecionamento
     setTimeout(() => {
         screenFlash.classList.add("active");
-    }, 640);
+    }, 620);
 
     setTimeout(() => {
         window.location.assign(DESTINO);
-    }, 980);
-});
+    }, 920);
+
+    // Fallback caso o WebView demore a redirecionar
+    fallbackTimer = setTimeout(() => {
+        screenFlash.classList.remove("active");
+        unlockToast.innerHTML = `✨ Liberado! <a href="${DESTINO}">Toque aqui se não abrir</a>`;
+    }, 2200);
+}
+
+giftButton.addEventListener("click", abrirPresente);
+hintButton.addEventListener("click", abrirPresente);
 
 /* Restaura o estado caso o usuário volte pelo botão do navegador */
 window.addEventListener("pageshow", () => {
+    clearTimeout(fallbackTimer);
     abrindo = false;
     giftButton.disabled = false;
+    hintButton.disabled = false;
+    tapGuide.classList.remove("hidden");
     giftSvg.classList.remove("opening", "charging", "rattle");
     screenFlash.classList.remove("active");
     unlockToast.classList.remove("visible");
